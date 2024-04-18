@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://kit.fontawesome.com/bea467c0c7.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css" />
+	<link rel="shortcut icon" href="assets/images/favicon.ico" />
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
+
+    <script src="https://cdn.jsdelivr.net/npm/@widgetbot/crate@3" async defer>
+        const button = new Crate({
+            server: '966515338927804416',
+            channel: '966515338927804419',
+            defer: true
+        })
+        setInterval(() => {
+             button.options.color = "#FFFFFF".replace(/F/g, () => {
+                return (~~(Math.random() * 16)).toString(16)
+            })
+        }, 1000)
+  
+        crate.notify('Hi! If you have any concern regarding the sign up or login, just chat in here.')
+    </script>
+    <title>Attendance Tracker V2</title>
+  </head>
+  <style>
+	 .input-field select {
+		background: none;
+		outline: none;
+		border: none;
+		line-height: 1;
+		font-weight: 600;
+		font-size: 1.1rem;
+		color: #333;
+		width:400px;
+		margin-right:42px;
+		} 
+		
+	  </style>
+  <body>
+    <div class="container">
+      <div class="forms-container">
+        <div class="signin-signup">
+			
+          <form  class="sign-in-form" enctype="multipart/form-data" id="entry-form" method="POST" >
+		  
+			<img src="assets/images/company_logo.png" alt="Logo" style="width: 100px; height: 100px; border: 2px solid white; border-radius: 100px;">
+            <br>
+            <h2 class="title">Sign in</h2>
+            <div class="input-field">
+              <i class="fas fa-user"></i>
+              <input type="text" id="user_name" name="user_name" placeholder="Email" required/>
+            </div>
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              <input type="password"  id="pwd" name="pwd" placeholder="Password" required/>
+            </div>
+            <a href="#" style="margin-right: 300px; color:#ffffff;" onclick="show1();">Forgot Password</a>
+            <button type="submit" data-sitekey="6LcHyZofAAAAACtd6nsFGVdYE0wLafcjpBCv6Z9s" data-callback='onSubmit' class="btn solid g-recaptcha" id="submit_id_login"><strong>LOGIN</strong></button> 
+          </form>
+          <form class="sign-up-form" enctype="multipart/form-data" id="entry-form1" method="POST">
+		  <img src="assets/images/company_logo.png" alt="Logo" style="width: 100px; height: 100px; border: 2px solid white; border-radius: 100px;">
+            <br>
+            <h2 class="title">Sign up</h2>
+			<div class="tab">	
+				    <div class="input-field">
+					  <i class="fa-solid fa-id-card"></i>
+					  <input type="number" placeholder="Application ID" id="app_id" name="app_id" oninput="this.className = ''" required/>
+					</div>
+					<div class="input-field">
+					  <i class="fas fa-user"></i>
+					  <input type="text" placeholder="First Name" id="firstname" name="firstname"  oninput="this.className = ''" required/>
+					</div>
+					<div class="input-field">
+					  <i class="fas fa-user"></i>
+					  <input type="text" placeholder="Middle Initial (N/A if none)" id="middle_name" name="middle_name" oninput="this.className = ''" required/>
+					</div>
+					<div class="input-field">
+					  <i class="fas fa-user"></i>
+					  <input type="text" placeholder="Last Name" id="lastname" name="lastname" oninput="this.className = ''" required/>
+					</div>				
+			</div>
+			
+			<div class="tab">	
+					<div class="input-field">
+					  <i class="fas fa-envelope"></i>
+					  <input type="email" placeholder="Email" id="email" name="email" oninput="this.className = ''" required/>
+					</div>
+					<div class="input-field">
+					  <i class="fas fa-lock"></i>
+					  <input type="text" placeholder="Mobile No." id="phone" name="phone" oninput="this.className = ''" required/>
+					</div>
+					<div class="input-field">
+					<i class="fa fa-birthday-cake"></i>
+					  <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="Birthdate" id="birthdate" name="birthdate" oninput="this.className = ''" required/>
+					</div>
+					<div class="input-field">
+					 <i class="fa fa-venus-mars"></i>
+					  	<select  placeholder="Gender" name="sex" id="sex"  oninput="this.className = ''"  required="">
+					  	<option value="" disabled selected>Select Gender</option>
+						<option value="Female">Female</option>
+						<option value="Male">Male</option>
+						<option value="Other">Other</option>
+						</select>  
+					</div>
+			</div>
+			
+			<div class="tab">
+					<div class="input-field">
+					  <i class="fa fa-street-view"></i>
+					  <input type="text" placeholder=" Streets"  id="street" name="street"oninput="this.className = ''" required/>
+					</div>
+					<div class="input-field">
+						<i class="fa fa-house-user"></i>
+						<input type="text" placeholder=" Barangay" id="barangay" name="barangay" oninput="this.className = ''" required/>
+					  </div>
+					<div class="input-field">
+						 <i class="fa fa-building-o"></i>
+						<input type="text" placeholder=" City" id="city" name="city" oninput="this.className = ''" required/>
+					  </div>
+					  <div class="input-field">
+						<i class="fa fa-map-marker"></i>
+						<input type="text" placeholder=" Province" id="province" name="province" oninput="this.className = ''" required/>
+					  </div>	
+			</div>
+			
+			<div class="tab">
+				<div class="input-field">
+					  <i class="fa fa-gift"></i>
+					  <select  placeholder="Civil Status" name="civil_status" id="civil_status"  oninput="this.className = ''"  required="">
+					  	<option value="" disabled selected>Select Civil Status</option>
+                    	<option value="Single" >Single</option>
+                    	<option value="Married">Married</option>
+                    	<option value="Divorced">Divorced</option>
+                        <option value="Widowed">Widowed</option>
+					</select>
+				</div>
+				<div class="input-field">
+					<i class="fa-solid fa-church"></i>
+					<input type="text" placeholder="Religion" id="religion" name="religion" oninput="this.className = ''" required/>
+				  </div>
+				  <div class="input-field">
+					<i class="fa fa-building-o"></i>
+						<select  placeholder="Select Company" name="company" id="company"  oninput="this.className = ''"  required="">
+						<option value="" disabled selected>Select Company</option>
+						<option value="Melham Construction Corporation" >Melham Construction Corporation</option>
+						<option value="Anafara Corporation">Anafara Corporation</option>
+						<option value="VisVis Travel & Tours">VisVis Travel & Tours</option>
+					  	</select>
+				  </div>
+				  <div class="input-field">
+					<i class="fa fa-vector-square"></i>
+						<select  placeholder="Department" name="department" id="department"  oninput="this.className = ''"  required="">
+							<option value="" disabled selected>Department</option>
+							<option value="Information Technology" >Information Technology</option>
+                            <option value="Mechanical Engineering">Mechanical Engineering</option>
+                            <option value="Mechatronics Engineering">Mechatronics Engineering</option>
+                            <option value="Industrial Engineering">Industrial Engineering</option>
+                            <option value="Petroleum Engineering">Petroleum Engineering</option>
+                            <option value="Electrical Engineering">Electrical Engineering</option>
+                            <option value="Electronics Engineering">Electronics Engineering</option>
+                            <option value="Industrial Technology">Industrial Technology</option>
+                            <option value="Civil Engineering">Civil Engineering</option>
+                            <option value="Sales And Marketing Department">Sales And Marketing Department</option>
+                            <option value="Operations Department">Operations Department</option>
+                            <option value="Creative Team Department">Creative Team Department</option>
+                            <option value="Business Development Department">Business Development Department</option>
+                            <option value="Liaison Department">Liaison Department</option>
+                            <option value="Client Relations Department">Client Relations Department</option>
+                            <option value="Social Media Marketing Department">Social Media Marketing Department</option>
+                            <option value="Human Resources Department">Human Resources Department</option>
+                            <option value="Quality Control Department">Quality Control Department</option>
+                            <option value="Learning and Development Department">Learning and Development Department</option>
+                            <option value="Manager">Manager</option>
+                            <option value="General Manager">General Manager</option>
+                            <option value="Supervisor">Supervisor</option>
+                            <option value="Officer-in-Charge">Officer-in-Charge</option>
+                            <option value="Over all Officer-in-Charge">Over all Officer-in-Charge</option>
+					  	</select>
+				  </div>					
+			</div>
+
+			<div class="tab">	
+				<div class="input-field">
+					<i class="fa-solid fa-calendar"></i>
+					<input type="text" onfocus="(this.type='date')" onblur="(this.type='text')"  name="start_date" id="start_date" placeholder="Start Date" oninput="this.className = ''" required/>
+				  </div>
+				  <div class="input-field">
+					<i class="fa-solid fa-calendar"></i>
+					<input type="text" onfocus="(this.type='date')" onblur="(this.type='text')"   name="estimated_end_date" id="estimated_end_date" placeholder="End Date" oninput="this.className = ''" required/>
+				  </div>
+				  <div class="input-field">
+					<i class="fa fa-clock-o"></i>
+					<select placeholder="Start Shift" name="start_shift" id="start_shift" onclick="timeselect();" oninput="this.className = ''" required="">
+						<option value="">Start Shift</option>
+						<option value="8:00 AM">8:00 AM</option>
+						<option value="9:00 AM">9:00 AM</option>
+						<option value="3:00 PM">3:00 PM</option>
+					  </select>
+				  </div>
+				  <div class="input-field">
+					<i class="fa fa-clock-o"></i>
+				
+						<input type="text" placeholder="End Shift" name="end_shift" id="end_shift" oninput="this.className = ''"readonly required/>
+				  </div>
+				
+		</div>
+			<div class="tab">
+                 <div class="input-field">
+					<i class="fa-solid fa-business-time"></i>
+					<input type="number" placeholder="No. of Required Hours" name="required_hours" id="required_hours" oninput="this.className = ''" required/>
+				  </div>
+				  <div class="input-field">
+				 <i class="fa-solid fa-link"></i>
+				  <input type="text" placeholder="Google Drive Link" name="gdrive_link" id="gdrive_link" oninput="this.className = ''" required/>
+				</div>	
+            </div>
+            <div class="tab">
+                <center><h3>Upload your 2x2 picture here</h3></center>
+                <div class="input-field">
+				    <i class="fa-solid fa-image"></i>
+				        <input style="margin-top:15px;" type="file" onchange="loadFile(event)" placeholder="Upload 2x2 picture" name="profile_pic" id="profile_pic" oninput="this.className = ''" required/>                    
+                </div>
+            </div>
+			
+			<div style="overflow:auto;">
+					  <div style="float:right;">
+						<button type="button" class="btn" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+						<button type="button" class="btn" id="nextBtn" onclick="nextPrev(1)">Next</button>
+						 <button type="submit" id="submit_id" class="btn">Sign Up</button>
+					  </div>
+					</div>
+
+					<!-- Circles which indicates the steps of the form: -->
+					<div style="text-align:center;margin-top:40px;">
+					  <span class="step"></span>
+					  <span class="step"></span>
+					  <span class="step"></span>
+					  <span class="step"></span>
+					  <span class="step"></span>
+                      <span class="step"></span>
+                      <span class="step"></span>
+					</div>
+          </form>
+        </div>
+		<div style="display: none;" class="signin-signup" id="forgot_pass_form">
+
+			<form action="requestReset.php" class="sign-in-form3" enctype="multipart/form-data"  method="POST" >
+  
+			  <img src="assets/images/company_logo.png" alt="Logo" style="width: 100px; height: 100px; border: 2px solid white; border-radius: 100px;">
+			  <br>
+			  <h2 class="title">Enter your email</h2>
+			  <div class="input-field">
+				<i class="fas fa-user"></i>
+				<input type="text" id="user_name" name="email" placeholder="Email" required/>
+			  </div>
+			 
+			  <a href="#" style="margin-right: 350px;color:#ffffff;"  onclick="show2();">Login Here</a>
+			  <button type="submit" class="btn solid" id="submit_forgot_pass"><strong>Submit</strong></button>
+			  
+			</form>
+			</div>
+      </div>
+
+      <div class="panels-container">
+        <div class="panel left-panel">
+          <div class="content">
+            <h3>New here ?</h3>
+            <p>
+              Please create your account for attendance tracker here!
+            </p>
+            <button class="btn transparent" id="sign-up-btn">
+              Sign up
+            </button>
+          </div>
+          <img src="img/welcome.svg" class="image" alt="" />
+        </div>
+        <div class="panel right-panel">
+          <div class="content">
+            <h3>One of us ?</h3>
+            <p>
+              Please login in here if you have an existing account!
+            </p>
+            <button class="btn transparent" id="sign-in-btn">
+              Sign in
+            </button>
+          </div>
+          <img src="img/wave.svg" class="image" alt="" />
+        </div>
+      </div>
+    </div>
+
+	<script src="assets/js/jquery.min.js"></script>
+    <script src="app.js"></script>
+    <script src="assets/js/md5.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+	<style>
+		.hide {
+		  display: none;
+		}
+		</style>
+		<script>
+            alertify.set('notifier','position', 'top-center');
+ 
+			function show1(){
+			$("#entry-form").hide();
+			document.getElementById('forgot_pass_form').style.display = 'block';
+			}
+			function show2(){
+			$("#entry-form").show();
+			document.getElementById('forgot_pass_form').style.display ='none';
+			}
+
+			</script>
+    <script>
+        
+    </script>
+	<script>
+		function setCookie(cName, cValue, expDays) {
+		let date = new Date();
+		date.setTime(date.getTime() + (expDays * 12 * 60 * 60 * 1000));
+		const expires = "expires=" + date.toUTCString();
+		document.cookie = cName + "=" + cValue + "; " + expires + "; path=/";
+	  }
+	  
+	  function getCookie(cName) {
+	    const name = cName + "=";
+	    const cDecoded = decodeURIComponent(document.cookie); //to be careful
+	    const cArr = cDecoded .split('; ');
+	    let res;
+	    cArr.forEach(val => {
+		  if (val.indexOf(name) === 0) res = val.substring(name.length);
+	    })
+	    return res;
+		  }
+		  
+		 function timeselect(){
+		
+			var t = document.getElementById("start_shift");
+			var times = t.options[t.selectedIndex].text;
+		
+			if(times == '8:00 AM'){
+				document.getElementById("end_shift").value = '5:00 PM';
+			}
+
+			if(times == '9:00 AM'){
+				document.getElementById("end_shift").value = '6:00 PM';
+			}
+			if(times == '3:00 PM'){
+				document.getElementById("end_shift").value = '12:00 AM';
+			}
+
+		}
+    
+    function onSubmit(event) {
+        var forms = document.getElementsByClassName('sign-in-form');
+        var validation = Array.prototype.filter.call(forms, function(form) {
+            $("#submit_id_login").prop("disabled", true);				
+            $("#submit_id_login").html(
+                "<span class='fa fa-refresh fa-spin' role='status' aria-hidden='true'></span>  &nbspLoading..."
+            );
+            if (form.checkValidity() === false) {
+                alert("false");
+            }
+            else {
+                var url = "api/check-user.php";
+                    $.post(url, $("#entry-form").serialize(), function(data) {
+                    
+                    if(data == "Access Denied"){
+                        setTimeout( function ( ) 
+                        { 	
+                            $("#submit_id_login").prop("disabled", false);
+                            $("#submit_id_login").html(
+                            "<span  role='status' aria-hidden='true'></span> LOGIN"
+                            );
+                        }, 4000 );
+                        grecaptcha.reset();
+                        setTimeout( function ( ) { alertify.error('Invalid username or password, please try again!'); }, 4400 );
+                        
+                    }
+                    else if(data == 2)
+                    {
+                        setTimeout( function ( )
+                        {
+                            $("#submit_id_login").prop("disabled", false);
+                            $("#submit_id_login").html(
+                            "<span  role='status' aria-hidden='true'></span> LOGIN"
+                            );
+                        }, 4000 );
+                        grecaptcha.reset();
+                        setTimeout( function ( ) { alertify.error('Your account has been Terminated.'); }, 4400 );
+                    }
+                    else if(data == 3)
+                    {
+                        setTimeout( function ( )
+                        {
+                            $("#submit_id_login").prop("disabled", false);
+                            $("#submit_id_login").html(
+                            "<span  role='status' aria-hidden='true'></span> LOGIN"
+                            );
+                        }, 4000 );
+                        grecaptcha.reset();
+                        setTimeout( function ( ) { alertify.error('Your internship has been completed. You have no longer access.');}, 4400 );
+                    }
+                    else if(data == 4)
+                    {
+                        setTimeout( function ( )
+                        {
+                            $("#submit_id_login").prop("disabled", false);
+                            $("#submit_id_login").html(
+                            "<span  role='status' aria-hidden='true'></span> LOGIN"
+                            );
+                        }, 4000 );
+                        grecaptcha.reset();
+                        setTimeout( function ( ) { alertify.error('You have been reported multiple times that results of unable to login. Please contact the core team regarding with the issue. Thank you for your understanding!'); }, 4400 );
+                    }
+                    else{
+
+                        setTimeout( function ( ) 
+                        { 	
+                            $("#submit_id_login").prop("disabled", false);
+                            $("#submit_id_login").html(
+                            "<span  role='status' aria-hidden='true'></span> LOGIN"
+                            );
+                            alertify.success('Access Granted!');
+                        }, 4000 );
+
+                        setTimeout( function ( ) {  
+
+                        setCookie("user_name", data[0].username, 1);
+                        setCookie("pwd", data[0].passwd, 1);
+                        setCookie("uty", data[0].usertype, 1);
+                        setCookie("user_id", data[0].user_acc_id, 1);
+                        setCookie("position", data[0].position, 1);
+                        window.location.replace('verification/');
+                        }, 4400 );
+                    }
+                });
+                
+            }
+            form.classList.add('was-validated');
+        });
+    }
+    
+	var user_id = getCookie('user_id');
+	if(user_id != undefined){
+			  window.location.replace('verification/');
+		  }
+	
+	
+	var currentTab = 0; // Current tab is set to be the first tab (0)
+	showTab(currentTab); // Display the current tab
+
+	function showTab(n) {
+	  // This function will display the specified tab of the form ...
+	  var x = document.getElementsByClassName("tab");
+	  x[n].style.display = "block";
+	  // ... and fix the Previous/Next buttons:
+	  if (n == 0) {
+		document.getElementById("prevBtn").style.display = "none";
+	  } else {
+		document.getElementById("prevBtn").style.display = "inline";
+	  }
+	  if (n == (x.length - 1)) {
+		$("#nextBtn").hide();
+		$("#submit_id").show();
+	  } else {
+	  $("#nextBtn").show();
+	  $("#submit_id").hide();
+		document.getElementById("nextBtn").innerHTML = "Next";
+	  }
+	  // ... and run a function that displays the correct step indicator:
+	  fixStepIndicator(n)
+	}
+
+	function nextPrev(n) {
+	  // This function will figure out which tab to display
+	  var x = document.getElementsByClassName("tab");
+	  // Exit the function if any field in the current tab is invalid:
+	  if (n == 1 && !validateForm()) return false;
+	  // Hide the current tab:
+	  x[currentTab].style.display = "none";
+	  // Increase or decrease the current tab by 1:
+	  currentTab = currentTab + n;
+	  // if you have reached the end of the form... :
+	  if (currentTab >= x.length) {
+		//...the form gets submitted:
+		document.getElementById("regForm").submit();
+		return false;
+	  }
+	  // Otherwise, display the correct tab:
+	  showTab(currentTab);
+	}
+
+	function validateForm() {
+	  // This function deals with validation of the form fields
+	  var x, y, i, valid = true;
+	  x = document.getElementsByClassName("tab");
+	  y = x[currentTab].getElementsByTagName("input");
+	  a = x[currentTab].getElementsByTagName("select");
+
+		for (i = 0; i < a.length; i++) {
+				// If a field is empty...
+				if (a[i].value == "") {
+				// add an "invalid" class to the field:
+				a[i].className += " invalid";
+				// and set the current valid status to false:
+				valid = false;
+				}
+			}
+
+	  // A loop that checks every input field in the current tab:
+	  for (i = 0; i < y.length; i++) {
+		// If a field is empty...
+		if (y[i].value == "") {
+		  // add an "invalid" class to the field:
+		  y[i].className += " invalid";
+		  // and set the current valid status to false:
+		  valid = false;
+		}
+	  }
+
+	  // If the valid status is true, mark the step as finished and valid:
+	  if (valid) {
+		document.getElementsByClassName("step")[currentTab].className += " finish";
+	  }
+	  return valid; // return the valid status
+	}
+
+	function fixStepIndicator(n) {
+	  // This function removes the "active" class of all steps...
+	  var i, x = document.getElementsByClassName("step");
+	  for (i = 0; i < x.length; i++) {
+		x[i].className = x[i].className.replace(" active", "");
+	  }
+	  //... and adds the "active" class to the current step:
+	  x[n].className += " active";
+	}
+	</script>
+	<style>
+
+	/* Mark input boxes that gets an error on validation: */
+	select.invalid {
+	  background-color: #ffdddd;
+	}
+	
+
+	/* Style the input fields */
+	input{
+	  border-top-right-radius: 28px;
+	  border-bottom-right-radius: 28px;
+	  font-size: 14px;
+	  border: 1px solid #aaaaaa;
+	  background-color: #f4f6fa;
+	  max-width: 403px;
+	  width: 100%;	  
+	  
+	}
+
+	/* Mark input boxes that gets an error on validation: */
+	input.invalid {
+	  background-color: #ffdddd;
+	}
+
+	select {
+	 border-top-right-radius: 28px;
+	  border-bottom-right-radius: 28px;
+	  max-width: 403px;
+	  width: 100%;
+	  font-size: 14px;
+	  border: 1px solid #aaaaaa;
+	  background-color: #f4f6fa;
+	}
+    @media screen and (max-width:900px)
+    {
+	    select {
+		    max-width: 350px; 
+		    width: 100%;
+	    }
+        select.invalid {
+		    max-width: 350px; 
+		    width: 100%;
+        }
+    }
+
+	/* Mark input boxes that gets an error on validation: */
+	select.invalid {
+	  background-color: #ffdddd;
+	}
+	
+	select:required:invalid {
+		color: #aab0be;
+	}
+	/* Hide all steps by default: */
+	.tab {
+	  display: none;
+	}
+
+	/* Make circles that indicate the steps of the form: */
+	.step {
+	  height: 15px;
+	  width: 15px;
+	  margin: 0 2px;
+	  background-color: #bbbbbb;
+	  border: none;
+	  border-radius: 50%;
+	  display: inline-block;
+	  opacity: 0.5;
+	}
+
+	/* Mark the active step: */
+	.step.active {
+	  opacity: 1;
+	}
+
+	/* Mark the steps that are finished and valid: */
+	.step.finish {
+	  background-color: #E0FFFF;
+	}
+	</style>
+
+		<script>
+			$(document).ready(function (e){
+				$("#entry-form1").on('submit',(function(e){
+					$("#prevBtn").hide();
+					$("#submit_id").prop("disabled", true);				
+					$("#submit_id").html(
+					"<span class='fa fa-refresh fa-spin' role='status' aria-hidden='true'></span>  &nbspLoading..."
+					);
+
+				e.preventDefault();
+				$.ajax({
+				url: "api/sign_up.php",
+				type: "POST",
+				data:  new FormData(this),
+				contentType: false,
+				cache: false,
+				processData:false,
+				success: function(data){
+					if(data == 1)
+					{
+						setTimeout( function ( ) 
+						{ 	$("#prevBtn").show();
+							$("#submit_id").prop("disabled", false);
+							$("#submit_id").html(
+							"<span  role='status' aria-hidden='true'></span> Submit"
+							);
+						}, 2000 );
+
+						setTimeout( function (){ 
+                            alertify.success('Successfully Signed Up. Please check your email/spam messages from time to time. Thankyou!');  
+                        }, 2400);
+                        setTimeout( function (){
+                            window.location.replace("index.html");
+                        }, 5400);
+					}
+					else if(data == 0)
+					{
+						setTimeout( function ( ) 
+						{ 	$("#prevBtn").show();
+							$("#submit_id").prop("disabled", false);
+							$("#submit_id").html(
+							"<span  role='status' aria-hidden='true'></span> Submit"
+							);
+						}, 4000 );
+
+						setTimeout( function ( ) { alertify.error('Sign up failed! Please try again.');}, 4400 );
+						
+					}
+				else if(data == 2)
+					{
+						
+						setTimeout( function ( ) 
+						{ 	$("#prevBtn").show();
+							$("#submit_id").prop("disabled", false);
+							$("#submit_id").html(
+							"<span  role='status' aria-hidden='true'></span> Submit"
+							);
+						}, 4000 );
+						
+						setTimeout( function ( ) { alertify.error('Email already exists! please try another email.'); }, 4400 );
+						
+						
+					
+					}
+					
+				},
+				error: function(){} 	        
+				});
+				}));
+		});
+				
+		</script>
+
+  </body>
+
+</html>
